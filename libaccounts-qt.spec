@@ -7,6 +7,7 @@ Summary:        Accounts framework (Qt binding)
 Url:            http://code.google.com/p/accounts-sso/
 Group:          System/Libraries
 Source0:        http://accounts-sso.googlecode.com/files/%{_name}-%{version}.tar.bz2
+Patch0:         libaccounts-qt-1.2-disable-multilib.patch
 BuildRequires:  doxygen
 BuildRequires:  fdupes
 #BuildRequires:  graphviz
@@ -43,6 +44,7 @@ HTML documentation for the accounts.
 
 %prep
 %setup -q -n %{_name}-%{version}
+%patch0 -p1
 sed -i 's,DATA_PATH = .*,DATA_PATH = /opt/tests/%{name}/data,' tests/accountstest.pro
 sed -i 's,/usr/bin/accountstest,/opt/tests/%{name}/accountstest,' tests/tests.xml
 

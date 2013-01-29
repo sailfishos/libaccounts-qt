@@ -1,3 +1,6 @@
+* Tue Jan 29 2013 Oleg Girko <ol+mer@infoserver.ru> - 1.2
+- Disable multilib for x86_64 architecture.
+
 * Thu Aug 23 2012 Bernd Wachter <bernd.wachter@jollamobile.com> - 1.2
 - Update to latest upstream version
 - Move to google-code upstream
