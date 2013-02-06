@@ -1,19 +1,18 @@
 %define _name accounts-qt
 Name:           libaccounts-qt
-Version:        1.2
+Version:        1.4
 Release:        1
 License:        LGPLv2.1
 Summary:        Accounts framework (Qt binding)
-Url:            http://code.google.com/p/accounts-sso/
+Url:            https://code.google.com/p/accounts-sso.libaccounts-qt
 Group:          System/Libraries
-Source0:        http://accounts-sso.googlecode.com/files/%{_name}-%{version}.tar.bz2
+Source:         %{_name}-%{version}.tar.bz2
 Patch0:         libaccounts-qt-1.2-disable-multilib.patch
 BuildRequires:  doxygen
 BuildRequires:  fdupes
-#BuildRequires:  graphviz
 BuildRequires:  pkgconfig(QtCore)
 BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  pkgconfig(libaccounts-glib) >= 1.3
+BuildRequires:  pkgconfig(libaccounts-glib) >= 1.6
 
 %description
 Framework to provide the accounts.
@@ -67,7 +66,6 @@ mv %{buildroot}/%{_bindir}/accountstest %{buildroot}/opt/tests/%{name}/
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/account-tool
 %{_libdir}/libaccounts-qt.so.*
 
 %files devel
@@ -84,7 +82,6 @@ mv %{buildroot}/%{_bindir}/accountstest %{buildroot}/opt/tests/%{name}/
 %{_includedir}/accounts-qt/Accounts/*.h
 %{_libdir}/libaccounts-qt.so
 %{_libdir}/pkgconfig/accounts-qt.pc
-%{_datadir}/qt4/mkspecs/features/accounts.prf
 
 %files tests
 %defattr(-,root,root,-)
