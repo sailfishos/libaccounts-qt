@@ -1,5 +1,5 @@
 %define _name accounts-qt
-Name:           libaccounts-qt
+Name:           libaccounts-qt5
 Version:        1.6
 Release:        1
 License:        LGPLv2.1
@@ -9,10 +9,12 @@ Group:          System/Libraries
 Source:         %{_name}-%{version}.tar.bz2
 Patch0:         libaccounts-qt-1.2-disable-multilib.patch
 Patch1:         0001-libaccounts-qt-c++0x.patch
-Patch2:         0002-libaccounts-qt-documentation-path.patch 
+Patch2:         0002-libaccounts-qt-documentation-path.patch
 BuildRequires:  doxygen
 BuildRequires:  fdupes
-BuildRequires:  pkgconfig(QtCore)
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Xml)
+BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(libaccounts-glib) >= 1.6
 
@@ -20,24 +22,24 @@ BuildRequires:  pkgconfig(libaccounts-glib) >= 1.6
 Framework to provide the accounts.
 
 %package devel
-Summary:        Development files for accounts-qt
+Summary:        Development files for accounts-qt5
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
-Provides:       accounts-qt-dev
+Provides:       accounts-qt5-dev
 
 %description devel
 Headers and static libraries for the accounts.
 
 %package tests
-Summary:        Tests for accounts-qt
+Summary:        Tests for accounts-qt5
 Group:          System/Libraries
 Requires:       %{name} = %{version}
 
 %description tests
-Tests for accounts-qt.
+Tests for accounts-qt5.
 
 %package doc
-Summary:        Documentation for accounts-qt
+Summary:        Documentation for accounts-qt5
 Group:          Documentation
 
 %description doc
@@ -57,7 +59,7 @@ make %{?_smp_mflags}
 
 %install
 %qmake_install
-rm %{buildroot}%{_datadir}/doc/accounts-qt/html/installdox
+rm %{buildroot}%{_datadir}/doc/accounts-qt5/html/installdox
 %fdupes %{buildroot}%{_includedir}
 %fdupes %{buildroot}%{_docdir}
 mkdir -p %{buildroot}/opt/tests/%{name}/test-definition
@@ -70,22 +72,22 @@ mv %{buildroot}/%{_bindir}/accountstest %{buildroot}/opt/tests/%{name}/
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/libaccounts-qt.so.*
+%{_libdir}/libaccounts-qt5.so.*
 
 %files devel
 %defattr(-,root,root,-)
-%{_includedir}/accounts-qt/Accounts/Account
-%{_includedir}/accounts-qt/Accounts/AccountService
-%{_includedir}/accounts-qt/Accounts/Application
-%{_includedir}/accounts-qt/Accounts/AuthData
-%{_includedir}/accounts-qt/Accounts/Error
-%{_includedir}/accounts-qt/Accounts/Manager
-%{_includedir}/accounts-qt/Accounts/Provider
-%{_includedir}/accounts-qt/Accounts/Service
-%{_includedir}/accounts-qt/Accounts/ServiceType
-%{_includedir}/accounts-qt/Accounts/*.h
-%{_libdir}/libaccounts-qt.so
-%{_libdir}/pkgconfig/accounts-qt.pc
+%{_includedir}/accounts-qt5/Accounts/Account
+%{_includedir}/accounts-qt5/Accounts/AccountService
+%{_includedir}/accounts-qt5/Accounts/Application
+%{_includedir}/accounts-qt5/Accounts/AuthData
+%{_includedir}/accounts-qt5/Accounts/Error
+%{_includedir}/accounts-qt5/Accounts/Manager
+%{_includedir}/accounts-qt5/Accounts/Provider
+%{_includedir}/accounts-qt5/Accounts/Service
+%{_includedir}/accounts-qt5/Accounts/ServiceType
+%{_includedir}/accounts-qt5/Accounts/*.h
+%{_libdir}/libaccounts-qt5.so
+%{_libdir}/pkgconfig/accounts-qt5.pc
 
 %files tests
 %defattr(-,root,root,-)
