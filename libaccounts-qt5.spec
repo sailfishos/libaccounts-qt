@@ -54,7 +54,7 @@ sed -i 's,DATA_PATH = .*,DATA_PATH = /opt/tests/%{name}/data,' tests/accountstes
 sed -i 's,/usr/bin/accountstest,/opt/tests/%{name}/accountstest,' tests/tests.xml
 
 %build
-%qmake CONFIG+=release
+%qmake5 CONFIG+=release
 make %{?_smp_mflags}
 
 %install
