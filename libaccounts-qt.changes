@@ -1,3 +1,6 @@
+* Sat Sep 21 2013 Davide Bettio <davide.bettio@ispirata.com> - 1.6
+- Added a patch that replaces NULL with QString where needed, fix build on gcc 4.8.
+
 * Tue Apr 16 2013 Vesa Halttunen <vesa.halttunen@jollamobile.com> - 1.6
 - Update to upstream version 1.6
 

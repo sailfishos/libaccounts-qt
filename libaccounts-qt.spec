@@ -10,6 +10,7 @@ Source:         %{_name}-%{version}.tar.bz2
 Patch0:         libaccounts-qt-1.2-disable-multilib.patch
 Patch1:         0001-libaccounts-qt-c++0x.patch
 Patch2:         0002-libaccounts-qt-documentation-path.patch 
+Patch3:         dont_cast_null_to_qstring.patch
 BuildRequires:  doxygen
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig(QtCore)
@@ -48,6 +49,7 @@ HTML documentation for the accounts.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 sed -i 's,DATA_PATH = .*,DATA_PATH = /opt/tests/%{name}/data,' tests/accountstest.pro
 sed -i 's,/usr/bin/accountstest,/opt/tests/%{name}/accountstest,' tests/tests.xml
 
